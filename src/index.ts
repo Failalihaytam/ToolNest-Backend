@@ -12,7 +12,7 @@ const port = process.env.PORT || 3001
 app.use(cors({
   origin: [
     'http://localhost:3000',  // Local development
-    'https://toolnest-three.vercel.app/'  // Your deployed frontend URL
+    /^https:\/\/toolnest.*$/  // Accept all URLs starting with https://toolnest
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH','OPTIONS'],
