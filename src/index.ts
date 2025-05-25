@@ -9,7 +9,15 @@ const app = express()
 const port = process.env.PORT || 3001
 
 // Middleware
-app.use(cors())
+app.use(cors({
+  origin: [
+    'http://localhost:3000',  // Local development
+    'https://toolnest-three.vercel.app/'  // Your deployed frontend URL
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH','OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}))
 app.use(express.json())
 
 // Test route
